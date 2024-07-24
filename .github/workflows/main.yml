@@ -1,0 +1,14 @@
+name: "build"
+
+on:
+  push:
+    branches: [ "**" ]
+    tags-ignore: [ "**" ]
+  pull_request:
+
+jobs:
+  call-build:
+    uses: "RonanPlugins/actions/.github/workflows/run-tests.yaml@master"
+    with:
+      artifacts-path: 'build/BetterRTP*.jar'
+      jdk-version: 17
